@@ -1,0 +1,28 @@
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+long long t, m, n;
+ 
+bool Prime(long long k) {
+    if (k < 2) return false;
+    if (k > 2 && k % 2 == 0) return false;
+    if (k > 3 && k % 3 == 0) return false;
+    for (int l = 2; l <= sqrt(k); l ++){
+        if (k % l == 0) return false;
+    }
+    return true;
+}
+ 
+int main()  {
+    cin >> t;
+    for (int i = 1; i <= t; i ++){
+        cin >> m >> n;
+        for (int j = m; j <= n; j ++){
+            if (Prime(j))   cout << j << endl;
+        }
+        cout << endl;
+    }
+ 
+    return 0;
+}
